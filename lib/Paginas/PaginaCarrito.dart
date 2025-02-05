@@ -89,6 +89,7 @@ class _PaginacarritoState extends State<Paginacarrito> {
                           itemBuilder: (context, index) {
                             return ItemProducto(
                               Nombre: db.productosCarrito[index]["Nombre"].toString(),
+                              Precio: num.parse(db.productosCarrito[index]["Precio"]),
                               esborrarTasca: (valor) => accioEsborrarTasca(index),
                             );
                           },

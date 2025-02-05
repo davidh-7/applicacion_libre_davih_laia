@@ -3,11 +3,13 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ItemProducto extends StatelessWidget {
   final String Nombre;
+  final num Precio;
   final Function(BuildContext)? esborrarTasca;
 
   const ItemProducto(
       {super.key, 
       required this.Nombre, 
+      required this.Precio,
       required this.esborrarTasca, 
       }
   );
