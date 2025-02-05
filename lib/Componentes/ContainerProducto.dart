@@ -8,8 +8,9 @@ class Containerproducto extends StatelessWidget {
   final String Imagen;
   final String Tipo;
   final String Info;
+  final Function() AccioCarrito;
 
-  const Containerproducto({super.key, required this.Nombre, required this.Precio, required this.Imagen, required this.Tipo, required this.Info});
+  const Containerproducto({super.key, required this.Nombre, required this.Precio, required this.Imagen, required this.Tipo, required this.Info, required this.AccioCarrito});
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +93,7 @@ class Containerproducto extends StatelessWidget {
                 ),
                 
               ),
-              Botones(carrito: true, accioBoto: () {  }),
+              Botones(accioBoto: () {  }),
              ],
           ),
         ],

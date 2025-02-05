@@ -4,6 +4,7 @@ import 'package:applicacion_libre_davih_laia/Componentes/DrawerPer.dart';
 import 'package:applicacion_libre_davih_laia/Data/BBDD.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:applicacion_libre_davih_laia/Data/BBDDProductos.dart';
 
 class Paginaprincipal extends StatefulWidget {
   const Paginaprincipal({super.key});
@@ -16,22 +17,15 @@ class _PaginaprincipalState extends State<Paginaprincipal> {
    final Box _boxHive = Hive.box("box_carrito_app");
    BaseDeDades db = BaseDeDades();
 
-  List productos = [
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "Equipamento deportivo", "Info" : "aixo es una bici"},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""}
-  ];
+  List <dynamic> LstProductos = productos;
+  
 
-  // void anadirCarrito(String nombre, int precio) {
-  //   setState(() {
-  //     db.productosCarrito.add({"Nombre": nombre, "Precio": precio});
-  //   });
-  //   db.actualitzarDades();
-  // }
+   void anadirCarrito(String nombre, int precio) {
+     setState(() {
+       db.productosCarrito.add({"Nombre": nombre, "Precio": precio});
+     });
+     db.actualitzarDades();
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -41,25 +35,19 @@ class _PaginaprincipalState extends State<Paginaprincipal> {
         child: Scaffold(
           drawer: Drawerper(),
           appBar: appbarPer(),
-          // body: Container(
-          //   child: 
-          //   Containerproducto(
-          //        Nombre: "Bici", 
-          //        Precio: "50", 
-          //        Imagen: "bici.jpg")
-          // ),
           body: Padding(
             padding: const EdgeInsets.all(15.0),
             child: GridView.builder(
-                itemCount: productos.length,
+                itemCount: LstProductos.length,
                 itemBuilder: (context, index) {
-              
+                  
                   return Containerproducto(
-                    Nombre: productos[index]["Nombre"], 
-                    Precio: productos[index]["Precio"], 
-                    Imagen: productos[index]["Imagen"],
-                    Tipo: productos[index]["Tipo"],
-                    Info: productos[index]["Info"],
+                    Nombre: LstProductos[index]["Nombre"], 
+                    Precio: LstProductos[index]["Precio"], 
+                    Imagen: LstProductos[index]["Imagen"],
+                    Tipo: LstProductos[index]["Tipo"],
+                    Info: LstProductos[index]["Info"],
+                    AccioCarrito: () {anadirCarrito(LstProductos[index]["Nombre"], LstProductos[index]["Precio"]);},
                     );
                 
                 }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

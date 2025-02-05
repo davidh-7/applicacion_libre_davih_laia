@@ -1,5 +1,6 @@
 import 'package:applicacion_libre_davih_laia/Componentes/AppbarPer.dart';
 import 'package:applicacion_libre_davih_laia/Componentes/DrawerPer.dart';
+import 'package:applicacion_libre_davih_laia/Componentes/ItemProducto.dart';
 import 'package:applicacion_libre_davih_laia/Data/BBDD.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -35,12 +36,7 @@ class _PaginacarritoState extends State<Paginacarrito> {
   // }
 
 
-  void canviarCheckbox(bool? valorCheckbox, int index){
-    setState(() {
-      db.productosCarrito[index]["Valor"] = !db.productosCarrito[index]["Valor"];
-    });
-    db.actualitzarDades();
-  }
+  
   void accioEsborrarTasca(int index) {
     setState(() {
       db.productosCarrito.removeAt(index);
@@ -104,31 +100,15 @@ class _PaginacarritoState extends State<Paginacarrito> {
                                     ),
                                   
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    
-                                    color: Colors.blueGrey[500],
-                                  ),
-                                  width: double.infinity,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        children: [
-                                          Text("TOTAL: ")
-                                        ],
-                                      ),
-                                    ),
-                                  
+                                ListView.builder(
+                                  itemCount: db.productosCarrito.length,
+                                  itemBuilder: (context, index){
+                                    return ItemProducto(
+                                      Nombre: db.productosCarrito[index]["Nombre"].toString(), 
+                                      Precio: num.parse(db.productosCarrito[index]["Precio"]),
+                                      esborrarTasca: (valor) => accioEsborrarTasca(index),
+                                    );
+                                  },
                                 ),
                               ],
                             ),
