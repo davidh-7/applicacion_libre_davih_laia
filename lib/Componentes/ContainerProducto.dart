@@ -93,7 +93,7 @@ class Containerproducto extends StatelessWidget {
                 ),
                 
               ),
-              Botones(accioBoto: () {  }),
+              Botones(accioBoto: AccioCarrito),
              ],
           ),
         ],

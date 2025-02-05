@@ -16,7 +16,8 @@ class BaseDeDades {
 
   void generarDadesEx(){
     productosCarrito = [
-      
+      {"Nombre": "Bici", "Precio": "50"},
+      {"Nombre": "Bici", "Precio": "50"},
     ];
   }
 

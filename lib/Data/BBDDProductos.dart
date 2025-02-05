@@ -9,21 +9,21 @@ List<Map<String, dynamic>> productos = [
   {
     "Nombre": "Pelota de Fútbol",
     "Precio": "20",
-    "Imagen": "pelota_futbol.jpg",
+    "Imagen": "PelotaFutbol.jpg",
     "Tipo": "Deportes",
     "Info": "Pelota oficial de tamaño 5 para partidos y entrenamientos."
   },
   {
     "Nombre": "Raqueta de Tenis",
     "Precio": "45",
-    "Imagen": "raqueta_tenis.jpg",
+    "Imagen": "RaquetaTenis.jpg",
     "Tipo": "Deportes",
     "Info": "Raqueta profesional con cuerda tensada para mejor precisión."
   },
   {
     "Nombre": "Tablero de Ajedrez",
     "Precio": "15",
-    "Imagen": "tablero_ajedrez.jpg",
+    "Imagen": "TableroAjedrez.jpg",
     "Tipo": "Ocio",
     "Info": "Tablero portátil perfecto para llevar a cualquier lugar."
   },
