@@ -1,4 +1,5 @@
 import 'package:applicacion_libre_davih_laia/Componentes/Botones.dart';
+import 'package:applicacion_libre_davih_laia/Componentes/BtnFloat.dart';
 import 'package:flutter/material.dart';
 
 class Containerproducto extends StatelessWidget {
@@ -6,8 +7,9 @@ class Containerproducto extends StatelessWidget {
   final String Precio;
   final String Imagen;
   final String Tipo;
+  final String Info;
 
-  const Containerproducto({super.key, required this.Nombre, required this.Precio, required this.Imagen, required this.Tipo});
+  const Containerproducto({super.key, required this.Nombre, required this.Precio, required this.Imagen, required this.Tipo, required this.Info});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,32 @@ class Containerproducto extends StatelessWidget {
       
       child: Stack(
         children: [
-          Botones(carrito: false),
+          FloatingActionButton(
+            backgroundColor: Colors.blueGrey[500],
+            onPressed: (){
+              showDialog(
+                context: context, 
+                builder: (BuildContext context){
+                  return AlertDialog(
+                    title: Text(Nombre),
+                    content: Text(Info),
+                    actions: [
+                      TextButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, 
+                        child: Text("Cerrar"))
+                    ],
+                  );
+                }
+              );
+            },
+            child: Icon(
+              Icons.info,
+              color: const Color.fromARGB(224, 0, 0, 0),
+            ),
+          ),
+          //Botones(carrito: false, accioBoto: () { Btnfloat(info: Info, Nombre: Nombre); }, ),
           Padding(
             padding: const EdgeInsets.all(40.0),
             child: ClipRRect(
@@ -65,7 +92,7 @@ class Containerproducto extends StatelessWidget {
                 ),
                 
               ),
-              Botones(carrito: true),
+              Botones(carrito: true, accioBoto: () {  }),
              ],
           ),
         ],

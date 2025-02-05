@@ -13,17 +13,17 @@ class Paginaprincipal extends StatefulWidget {
 }
 
 class _PaginaprincipalState extends State<Paginaprincipal> {
-  // final Box _boxHive = Hive.box("box_carrito_app");
-  // BaseDeDades db = BaseDeDades();
+   final Box _boxHive = Hive.box("box_carrito_app");
+   BaseDeDades db = BaseDeDades();
 
   List productos = [
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "Equipamento deportivo"},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""}
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "Equipamento deportivo", "Info" : "aixo es una bici"},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "", "Info" : ""}
   ];
 
   // void anadirCarrito(String nombre, int precio) {
@@ -59,6 +59,7 @@ class _PaginaprincipalState extends State<Paginaprincipal> {
                     Precio: productos[index]["Precio"], 
                     Imagen: productos[index]["Imagen"],
                     Tipo: productos[index]["Tipo"],
+                    Info: productos[index]["Info"],
                     );
                 
                 }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
