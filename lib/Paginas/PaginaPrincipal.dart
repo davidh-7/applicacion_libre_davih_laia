@@ -17,7 +17,13 @@ class _PaginaprincipalState extends State<Paginaprincipal> {
   // BaseDeDades db = BaseDeDades();
 
   List productos = [
-    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg"}
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : "Equipamento deportivo"},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""},
+    {"Nombre": "Bici", "Precio": "50", "Imagen": "bici.jpg", "Tipo" : ""}
   ];
 
   // void anadirCarrito(String nombre, int precio) {
@@ -35,17 +41,35 @@ class _PaginaprincipalState extends State<Paginaprincipal> {
         child: Scaffold(
           drawer: Drawerper(),
           appBar: appbarPer(),
-          body: ListView.builder(
-            itemCount: productos.length,
-            itemBuilder: (context, index) {
-
-              return Containerproducto(
-                Nombre: productos[index]["Nombre"], 
-                Precio: productos[index]["Precio"], 
-                Imagen: productos[index]["Imagen"]);
-            
-            },
+          // body: Container(
+          //   child: 
+          //   Containerproducto(
+          //        Nombre: "Bici", 
+          //        Precio: "50", 
+          //        Imagen: "bici.jpg")
+          // ),
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: GridView.builder(
+                itemCount: productos.length,
+                itemBuilder: (context, index) {
+              
+                  return Containerproducto(
+                    Nombre: productos[index]["Nombre"], 
+                    Precio: productos[index]["Precio"], 
+                    Imagen: productos[index]["Imagen"],
+                    Tipo: productos[index]["Tipo"],
+                    );
+                
+                }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5, //num columnas
+                    crossAxisSpacing: 25.0 ,//espoacio horizontal entre elementos
+                    mainAxisSpacing: 25.0 ,//Espacio vertical entre elementos
+                    childAspectRatio: 1.0, //Relacion de aspecto entre ancho y alto
+                  ),
+              ),
           ),
+          
         ),
       ),
     );
