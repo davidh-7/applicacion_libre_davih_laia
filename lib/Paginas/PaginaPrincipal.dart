@@ -20,12 +20,12 @@ class _PaginaprincipalState extends State<Paginaprincipal> {
   List <dynamic> LstProductos = productos;
   
 
-   void anadirCarrito(String nombre, int precio) {
-     setState(() {
-       db.productosCarrito.add({"Nombre": nombre, "Precio": precio});
-     });
-     db.actualitzarDades();
-   }
+   void anadirCarrito(String nombre, String precio) {
+  setState(() {
+    db.productosCarrito.add({"Nombre": nombre, "Precio": precio});
+  });
+  db.actualitzarDades();
+}
 
   @override
   Widget build(BuildContext context) {

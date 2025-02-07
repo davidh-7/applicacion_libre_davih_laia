@@ -28,11 +28,11 @@ class _PaginacarritoState extends State<Paginacarrito> {
   @override
   void initState() {
     super.initState();
-    if (_boxHive.get("box_carrito_app") == null) {
-      db.generarDadesEx();
-    } else {
-      db.carregarDades();
-    }
+    if (_boxHive.get("productosCarrito") == null) {
+  db.generarDadesEx();
+} else {
+  db.carregarDades();
+}
     _calcularTotal();
   }
 
